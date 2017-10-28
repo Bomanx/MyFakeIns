@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
+	<title>Homepage</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='hpstyles.css') }}">
 
 </head>
+
 <body>
-Hello nmsl1
-<a href='/register'>register</a>
-<iframe src="/register"></iframe>
+
+<div class="glowing">
+
+<h1>Share Your Life</h1>
+<h2>My fake instagram</h2>
+</div>
+<br>
+<br>
+<table align="center">
+	<tr>
+		<td><a href="{{ url_for('login') }}">Log in</a></td>
+	</tr>
+	<tr>
+		<td><a href="{{ url_for('register') }}">Register</a></td>
+	</tr>
+	<tr>
+		<td><a href="{{ url_for('login') }}?email=guest&password=guest">Guest</a></td>
+	</tr>
+</table>>
+
 </body>
 </html>
