@@ -1,35 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create an account!</title>
+    <title>Create your account</title>
 </head>
-
+{%if not supress%}
+<h1> Email already in use! Choose another one or <a href="/login">login</a></h1>
+{% endif %}
     <body>
-
-
-<!-- <hr width="1" size="100" border-left="50"> -->
-<div id="header">
-    <div id="header-content">
-        <div class="vr" style="left:400px;"></div>
-            <div id="href" style="padding:20px">
-                <div style="padding: 0 0 0 200px; display: inline;">
-                    <a href="/" style="" >Home</a>
-                </div>
-                <div style="padding: 0 0 0 200px; display: inline;">
-                    <a href="{{ url_for('login') }}">Log in</a>
-                </div>
-                <div style="padding: 0 0 0 200px; display: inline;">
-                    <a href="{{ url_for('login') }}?email=guest&password=guest">Guest</a>
-                </div>
-            </div>
-        <div class="vr" style="left:700px;"></div>
-    </div>
-</div>
-     
-        <div class="title">
             <h1>Enter your information below</h1>
-        </div>
-        <div id="content" align="center">
             <form method="post" action="{{ url_for('register_user') }}">
                 <label for="email">Email:</label><br>
                 <input type="email" name="email" /><br />
@@ -54,10 +32,8 @@
                 <br>
                 <input type="submit" />
             </form>
-         </div>
     </body>
     <br>
-
-
+<a href='/'>Home</a>
 <br><br>
 </html>
