@@ -1,46 +1,10 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html style="height:100%;">
-<head>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
-
-=======
 <html>
 <head>
-	<title>Logging in</title>
->>>>>>> dbbbe09685c8f7fdd80f34d833b9e41d4101d4a9
 </head>
 
 <body>
 
-<<<<<<< HEAD
-<div class="header">
-	<!-- <img src="{{url_for('static', filename='the-bucket-list-family-logo.png')}}" top="50" height="60" /> -->
-
-	<img src="{{url_for('static', filename='48b753322ac9892c.png', width=100)}}" align="right"/>
-	<div class="rainbow">同&nbsp;性&nbsp;交&nbsp;友&nbsp;网&nbsp;站</div>
-
-</div>
-<div class="test">
-<a href="{{ url_for('register') }}"><img src="{{url_for('static', filename='5077521_175606788000_2.jpg', width=40)}}" top="50" height="60" /></a>
-</div>
-
-<div class="border">
-	
-
-<form action="login" method="POST" style="text-align: center; padding: 100px 0;font-family: 'cute'" >
-	Email:<br>
-	<input type="text" name="email" id="email" placeholder="email" value = {{ request.form.email }}><br>
-	<br>
-	Password:<br>
-	<input type="password" name="password" id="password" placeholder="password" value = {{ request.form.password }}><br>
-	<br>
-	<input type="submit" name="submit" value="Submit">
-</form>
-	
-
-</div>
-=======
 <form action="login" method="POST" >
 	Email:<br>
 	<input type="text" name="email" id="email" placeholder="email"><br>
@@ -50,6 +14,5 @@
 	<br>
 	<input type="submit" name="submit" value="Submit">
 </form>
->>>>>>> dbbbe09685c8f7fdd80f34d833b9e41d4101d4a9
 </body>
 </html>
