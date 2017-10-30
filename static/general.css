@@ -1,0 +1,88 @@
+
+
+body {
+	
+	min-height: 100%;
+	font-size: 30px;
+	/*background-image: url("default.jpg");*/
+	background-color: rgba(102, 194, 255,0.15);
+}
+
+.glowing {
+    text-align: center;
+    margin: 60px 0 0 0;
+    font-family: "Comic Sans MS", cursive, sans-serif
+    font-weight: bold;
+    color:rgb(102, 194, 255);
+    
+    text-shadow: #7a7a7a 4px 3px 0;
+}
+
+
+#header {
+    background-color: white;
+    /*Opacity start*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.80;
+    -khtml-opacity: 0.8;
+    opacity: 0.8;
+    /*Opacity end*/
+    color: grey;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+}
+#header #header-content {
+    margin: 10px;
+}
+.vr { 
+    display: block;
+    width:1px;
+    background-color:grey;
+    position:absolute;
+    top:10px;
+    bottom:10px;
+    left:400px;
+}
+
+#href a{
+	text-decoration: none;
+	white-space:nowrap;
+	padding: 20px 0 0 0;
+}
+
+@font-face {
+	font-family: 'cute';
+	src: url('PenguinAttack.ttf');
+    
+    font-family: 'Rain';
+    src: url('AYearWithoutRain.ttf');
+}
+
+@font-face {
+    font-family: 'soria';
+    src: url('Soria.ttf');
+}
+
+
+.title {
+
+	padding: 100px 0 0 0;
+	font-family: cute;
+	color: rgba(0,0,0,.6);
+	text-align: center;
+	text-shadow: rgba(0,0,0,.2) 2px 6px 5px,rgba(255,255,255,.4) 0 -4px 30px;
+}
+input {
+    font-size:20px;
+}
+
+.homebutton {
+	text-align: center;
+
+}

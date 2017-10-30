@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Profile</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='general.css') }}">
+
+</head>
+
+<body>
+	{% if not guest %}
+	{% if message %}
+  		<h4>{{message}}</h4>
+	{% endif %}
+
+	{% if name %}
+  		<h1>Hello!&nbsp; {{ name }}!</h1>
+	{% endif %}
+
+	
+	
+
+
+	
+	
+	
+	
+ 
+	
+
+<div id="href">
+	<a href="{{ url_for('photo') }}">My photos!</a>
+	<br><br>
+    <a href="{{ url_for('upload') }}">Upload photos!</a>
+    <br><br>
+    <a href="{{ url_for('albums') }}">My albums!</a>
+    <br><br>
+    <a href="{{ url_for('createalbum') }}">Create an album!</a>
+    <br><br>
+    <a href="{{ url_for('users') }}">Search!</a>
+    <br><br>
+    
+  	<a href="{{ url_for('users') }}?selfid={{uid}}">Friends list!</a>
+	<br><br>
+	<a href="{{ url_for('recommendation') }}">Recommendations!</a>
+    
+    <br><br>
+    <a href="{{ url_for('logout') }}">Log out here</a>
+
+    {% endif %}
+</div>
+</body>
+</html>
+
+

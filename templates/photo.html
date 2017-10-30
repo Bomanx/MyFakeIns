@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>photo</title>
+	<link rel="stylesheet" href="/static/photostyles.css"
+   type="text/css" media="screen" charset="utf-8" />
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='general.css') }}">
+   <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    -->
+   
+</head>
+<body>
+
+<div class="glowing">
+{% if name %}
+	<h2>Hello!&nbsp; {{name}}</h2>
+{% endif %}
+</div>
+
+<div class="msg">
+{% if message %}
+	<h2>{{message}}</h2>
+{% endif %}
+</div>
+<div class="headline">
+  <span class="letter" data-letter="P">P</span>
+  <span class="letter" data-letter="H">H</span>
+  <span class="letter" data-letter="O">O</span>
+  <span class="letter" data-letter="T">T</span>
+  <span class="letter" data-letter="O">O</span>
+  <span class="letter" data-letter="S">S</span>
+
+ </div> 
+
+
+{% if photos %}
+	
+	<ul>
+	    {% for photo in photos %}
+	
+	        <li>
+
+	        	<br>
+	        	    <div id="container">
+        	<div class="image-container">
+            
+	        	<a href="{{url_for('photo')}}?pid={{photo[1]}}&photouid={{photo[3]}}"><img src='data:image/png;base64, {{photo[0]}}'/></a><br>
+	        	</div>
+	        	</div>
+	        	<div class="ptitle">
+	        	{{photo[2]}}
+	        	<br>
+	        	</div>
+
+	        	<div class="navi2">
+
+	        	<a href="{{url_for('delete')}}?pid={{photo[1]}}&photouid={{photo[3]}}&aid={{photo[4]}}">
+	        	<label>
+	        	Delete {{photo[2]}}
+	        	</label>
+	        	</a>
+				<br>
+				
+				</div>
+	        </li>
+
+	    {% endfor %}
+
+	    
+	    
+	    
+	    
+
+	</ul>
+	
+	<div class="navi" id="top1">
+
+	<a href="{{url_for('albums')}}?aid={{photos[0][4]}}&userid={{photos[0][3]}}">
+	<label>
+	Back to Albumlist
+	</label>
+	</a>
+
+	</div>
+
+
+
+
+
+{% endif %}
+
+{% if photo %}
+
+
+	<div class="photo">
+	<img src='data:image/png;base64, {{photo[0][0]}}'/><br>
+	
+	</div>
+	<div class="ptitle">
+	{{photo[0][2]}}&nbsp;
+	<div class="navi3">
+	<a href="{{url_for('photo')}}?pid={{photo[0][1]}}&userid={{photo[0][3]}}"><label>Like!</label></a>
+	</div>
+	</div>
+	<div class="navi" id="top1">
+	<a href="{{url_for('albums')}}?aid={{photo[0][4]}}" class="button"><label>Back to Album</label></a>
+
+	</div>
+	<br>
+	<div class="tag">
+
+	{% if likes %}
+		{% for like in likes %}
+			{{like[1]}}
+		{% endfor %}
+		&nbsp;{{count}}
+		people have liked the photo
+	{% endif %}
+
+
+	{% if tags %}
+	<br>
+	<!-- <ul> -->
+		Tags: 
+		{% for tag in tags %}
+			<br>
+			<!-- <li> -->
+			{{tag[3]}}
+			<br>
+			<a href="{{url_for('photo')}}?word={{tag[3]}}&usertagid={{tag[1]}}&pid={{tag[2]}}">View my photos/</a>
+			<a href="{{url_for('photo')}}?word={{tag[3]}}&pid={{tag[2]}}">View all photos</a>
+			<!-- </li> -->
+		{% endfor %}
+	<!-- </ul> -->
+	
+	{% endif %}
+	<br>
+	<br>
+	<form method="post" action="/photo">
+		Comment:<label for="comments"></label>
+        <input type="text" name="comment" /><br />
+        <input type="submit" name="comment" value="Submit">
+        <input type="hidden" name="pid" value="{{photo[0][1]}}">
+        <input type="hidden" name="photouid" value="{{photo[0][3]}}">
+	</form>
+
+	{% if comments %}
+		{% for comment in comments %}
+			{% if not anonymous %}
+				<a href="{{url_for('users')}}?uid={{comment[0]}}">{{comment[1]}}</a>
+				:&nbsp;{{comment[2]}}
+			{% else %}
+				Anonymous:&nbsp;{{comment[2]}}
+			{% endif %}
+			
+				
+				
+				<br>
+			
+		{% endfor %}
+	{% endif %}
+
+
+
+
+{% endif %}
+</div>
+
+<br>
+<div class="navi" id="top2">
+
+{% if not guest %}
+	<a href="{{ url_for('profile') }}"><label>Back to Profile</label></a>	
+{% else %}
+	<a href="{{ url_for('login') }}?email=guest&password=guest"><label>Homepage</label></a>
+{% endif %}
+
+</div>
+
+</body>
+</html>
+
+

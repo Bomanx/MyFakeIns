@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>users</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='general.css') }}">
+</head>
+
+<body>
+	{% if message %}
+  		<h2>{{message}}</h2>
+	{% endif %}
+	<br>
+	<p>Search photos!</p>
+	<form action="/photosearch" method = "POST">
+   	  	<br> Input tags for photo search: &nbsp;<input type = "text" name = "tags" /></p>
+  	   	<p><input type="submit" name="tags"  /></p>
+	</form>
+		
+
+	<br>
+	<form action="/users" method = "POST">
+   	  	<p>Search a user!: <input type = "text" name = "user" /></p>
+  	   	<p><input type="submit" name="user"  /></p>
+	</form>
+	<br>
+	
+
+
+	{% if users %}
+
+		{%for user in users %}
+			<a href="{{url_for('users')}}?uid={{user[0]}}">{{user[1]}}</a>
+			
+			{% if not friends %}
+				{% if useremail != user[1] %}
+					<a href="{{ url_for('users') }}?fid={{user[0]}}">Add to friends!</a>
+				{% endif %}
+
+			{% endif %}
+			<br>
+		{% endfor %}
+	{% endif %}
+
+	<br>
+	<a href="{{ url_for('activeUser') }}">Check active users!</a>
+
+	<br><br>
+
+
+
+
+	{% if not guest %}
+		<a href="{{ url_for('profile') }}">Back to Profile</a>	
+	{% else %}
+		<a href="{{ url_for('login') }}">Log in</a><br>
+		<a href="{{ url_for('register') }}">Register</a><br>
+		<a href="{{ url_for('logout') }}">Homepage</a><br>
+
+		
+	{% endif %}
+
+</body>
+
+</html>

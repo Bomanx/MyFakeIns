@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recommendations</title>
+	<link rel="stylesheet" href="/static/photostyles.css"
+   type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='general.css') }}">
+</head>
+
+
+	
+<body>
+
+{%if message %}
+	<h2>{{message}}</h2>
+{% endif %}
+	<form action="recommendation" method="POST">
+		<h1>Tag recommendation session</h1>
+        <p>Tags in your mind!</p>
+        <input type="text" name="tags" />
+        <input type="submit" names="submit" value="tags">
+        <br>
+
+    </form>
+
+    {% if sequence %}
+    	{% for seq in sequence %}
+    		{{seq[1]}}&nbsp;{{seq[0]}}times<br>
+    	{% endfor %}
+    {% endif %}
+
+    <br>
+
+    {% if photos %}
+	
+	<ul>
+	    {% for photo in photos %}
+	        <li>
+	        	<br>
+	        	<a href="{{url_for('photo')}}?pid={{photo[1]}}&photouid={{photo[3]}}"><img src='data:image/png;base64, {{photo[0]}}'/></a><br>
+	        	{{photo[2]}}
+	        	<br>
+	    {% endfor %}
+			</li>
+	</ul>
+
+	<br>
+	{% endif %}
+
+
+    <a href="{{ url_for('profile') }}">Back to Profile</a>	
+
+
+
+</body>
+
+</html>

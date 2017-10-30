@@ -1,0 +1,47 @@
+
+body {
+	background-image: url("Dark-background-free-download.jpg");
+}
+
+.glowing {
+	text-align: center;
+	
+	font-family: "Comic Sans MS", cursive, sans-serif
+	font-weight: bold;
+	color: rgba(255,255,255,.5);
+	text-shadow: #fff 0 0 10px;
+}
+
+h1{
+	font-size: 100px;
+}
+
+.imgsize {
+	max-width: 100px;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: rgba(255,255,255,.1);
+    width:30%;
+    
+}
+
+table,td {
+	border:1px solid black;
+    text-align: center;
+    font-size: 30px;
+    
+}
+
+td {
+	color: #fff;
+	text-shadow: rgba(255,255,255,.5) 0 0 15px, rgba(255,255,255,.5) 0 0 10px;
+	padding:10px;
+	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+
+}
+
+
+
+

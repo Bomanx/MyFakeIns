@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Upload</title>
+    <title>Upload a photo!</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='general.css') }}">
 </head>
-<body>
+    <body>
+        <div class="title">
+            <h1>Upload a photo to Photoshare</h1>
+        </div>
+            {% if message %}
+                {{message}}
+            {% endif %}
 
-</body>
-</html>
+            <br>
+
+            
+            
+            <form method="post" enctype="multipart/form-data" action="/upload">
+                
+                
+                {% if albums %}
+                <h2>Select an album to upload: </h2>
+                {% for album in albums %}
+                    <label for="aid"></label>
+                    <input type="radio" name="aid" value="{{album[0]}}", required='true' />{{album[1]}}<br />
+                {% endfor %}
+                {% endif %}
+                <label for="photo">Select photo:</label>
+                <input type="file" name="photo", required='true' /><br />
+                <label for="caption">Please caption:</label>
+                <input type="text" name="caption", required='true'  /><br />
+                
+                <label for="tags">Tag:</label>
+                <input type="text" name="tags", required='true' />
+                {% if tagrecommand %}
+                    {% for tag in tagrecommand %}
+                        {{tag}}<br>
+                    {% endfor %}
+                {% endif %}
+
+                <br />
+                
+                
+
+
+                <input type="submit" value="Upload" />
+
+            </form>
+
+
+
+            
+            
+
+    </body>

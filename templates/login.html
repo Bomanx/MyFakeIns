@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html style="height:100%;">
 <head>
-    <meta charset="UTF-8">
-    <title>Log in!</title>
-</head>
-<form action = "" method = "POST">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
 
-<div class = "form-group">
-    <label>Email: </label>
-    <input type = "text" name = "email" class = "form-control" value = {{ request.form.email }}>
+</head>
+
+<body>
+
+<div class="header">
+	<!-- <img src="{{url_for('static', filename='the-bucket-list-family-logo.png')}}" top="50" height="60" /> -->
+
+	<img src="{{url_for('static', filename='48b753322ac9892c.png', width=100)}}" align="right"/>
+	<div class="rainbow">同&nbsp;性&nbsp;交&nbsp;友&nbsp;网&nbsp;站</div>
+
 </div>
-<div class = "form-group">
-    <label>Password: </label>
-    <input type = "password" name = "password" class = "form-control" value = {{ request.form.password }}>
+<div class="test">
+<a href="{{ url_for('register') }}"><img src="{{url_for('static', filename='5077521_175606788000_2.jpg', width=40)}}" top="50" height="60" /></a>
 </div>
-<button type = "submit" class = "btn btn-primary">Submit</button>
+
+<div class="border">
+	
+
+<form action="login" method="POST" style="text-align: center; padding: 100px 0;font-family: 'cute'" >
+	Email:<br>
+	<input type="text" name="email" id="email" placeholder="email" value = {{ request.form.email }}><br>
+	<br>
+	Password:<br>
+	<input type="password" name="password" id="password" placeholder="password" value = {{ request.form.password }}><br>
+	<br>
+	<input type="submit" name="submit" value="Submit">
 </form>
+	
+
+</div>
+</body>
 </html>
