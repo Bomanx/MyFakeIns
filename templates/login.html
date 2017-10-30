@@ -1,12 +1,19 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html style="height:100%;">
 <head>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
 
+=======
+<html>
+<head>
+	<title>Logging in</title>
+>>>>>>> dbbbe09685c8f7fdd80f34d833b9e41d4101d4a9
 </head>
 
 <body>
 
+<<<<<<< HEAD
 <div class="header">
 	<!-- <img src="{{url_for('static', filename='the-bucket-list-family-logo.png')}}" top="50" height="60" /> -->
 
@@ -33,5 +40,16 @@
 	
 
 </div>
+=======
+<form action="login" method="POST" >
+	Email:<br>
+	<input type="text" name="email" id="email" placeholder="email"><br>
+	<br>
+	Password:<br>
+	<input type="password" name="password" id="password" placeholder="password"><br>
+	<br>
+	<input type="submit" name="submit" value="Submit">
+</form>
+>>>>>>> dbbbe09685c8f7fdd80f34d833b9e41d4101d4a9
 </body>
 </html>
