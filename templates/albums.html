@@ -2,29 +2,17 @@
 <html>
 <head>
 	<title>Albums</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='general.css') }}">
+
 </head>
 
 <body>
-	{% if name %}
-		<h3>Hello!&nbsp;{{name}}</h3>
-	{% endif %}
-
-
+		<h3>welcome</h3>
 	{% if homename %}
-		<h1>{{homename}}'s&nbsp;Home</h1>
+		<h1>This is&nbsp;{{homename}}'s&nbsp;Profile</h1>
 	{% endif %}
-
-	{% if message %}
-		<h3>{{message}}</h3>
-	{% endif %}
-
-
-
-
 
 	{% if albums %}
-		<h2>Browse an album</h2>
+		<h2>Album</h2>
 		<ul>
 			{% for album in albums %}
 
@@ -33,9 +21,17 @@
 				<br>
 			{% endfor %}
 		</ul>
+	{% endif %}
+{% if not guest %}
+	<a href="{{ url_for('profile') }}">Back to Profile</a>
+{% else %}
+	<a href="{{ url_for('login') }}?email=guest&password=guest">Homepage</a>
+{% endif %}
 
+</body>
 
-	
+</html>
+
 
 	
 		
